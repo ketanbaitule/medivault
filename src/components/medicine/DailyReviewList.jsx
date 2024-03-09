@@ -41,10 +41,11 @@ export default function DailyReviewList(){
             <BlockTitle medium >Daily Review</BlockTitle>
             <List strong inset outline>
                 {
-                daily_review_medicines.map((medicine)=>{
+                daily_review_medicines.map((medicine, index)=>{
 
                     return(
                     <ListItem
+                        key={index}
                         chevronMaterial={false}
                         title={medicine.name}
                         footer={

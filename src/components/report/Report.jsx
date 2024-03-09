@@ -47,10 +47,11 @@ export default function Report(){
             </div>
             <List strong inset outline>
                 {
-                daily_review_medicines.map((medicine)=>{
+                daily_review_medicines.map((medicine, index)=>{
 
                     return(
                     <ListItem
+                        key={index}
                         chevronMaterial={false}
                         title={medicine.name}
                         footer={
