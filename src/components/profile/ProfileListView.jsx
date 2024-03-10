@@ -2,7 +2,7 @@ import { Block, BlockHeader, BlockTitle, List, ListItem } from "konsta/react";
 import Link from "next/link";
 import { MdNavigateNext } from "react-icons/md";
 
-export default function ProfileListView({setActiveTab}){
+export default function ProfileListView({user, setActiveTab}){
     const emergency_contact = {
         "name": "Dummy Name",
         "contact": "+911223456789"
@@ -11,9 +11,9 @@ export default function ProfileListView({setActiveTab}){
         <>
             <Block inset>
                 <div className="flex flex-col items-center gap-y-5 mt-5">
-                    <img className="rounded-full h-32" src="https://files.catbox.moe/tt6od5.webp" alt="user image" />
+                    <img className="rounded-full h-32" src={user.picture} alt="user image" />
                     <div className="text-xl font-semibold">
-                        Person Name
+                        {user.nickname}
                     </div>
                 </div>
             </Block>

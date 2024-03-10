@@ -18,7 +18,7 @@ export default function Home() {
 
       { activeTab === "home" && <DailyReviewList />}
       { activeTab === "reports" && <Report />}
-      { activeTab === "profile" && <ProfileListView setActiveTab={setActiveTab} /> }
+      { activeTab === "profile" && <ProfileListView user={user} setActiveTab={setActiveTab} /> }
 
       <Tabbar className="left-0 bottom-0 fixed">
         <TabbarLink active={activeTab === "home"} onClick={()=>setActiveTab("home")} label="Home" icon={ <FaHome /> } />
