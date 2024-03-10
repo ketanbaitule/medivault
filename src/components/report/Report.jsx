@@ -33,7 +33,7 @@ export default function Report(){
 
     return(
         <>
-            <BlockTitle medium >Latest Report</BlockTitle>
+            <BlockTitle medium >Report</BlockTitle>
             
             <List strong inset outline>
                 {
