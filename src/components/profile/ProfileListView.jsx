@@ -1,4 +1,5 @@
 import { Block, BlockHeader, BlockTitle, List, ListItem } from "konsta/react";
+import Link from "next/link";
 import { MdNavigateNext } from "react-icons/md";
 
 export default function ProfileListView({setActiveTab}){
@@ -50,18 +51,20 @@ export default function ProfileListView({setActiveTab}){
             <List inset strong>
                 <ListItem 
                     title={"Current Medication"}
-                    onClick={()=>{setActiveTab("reports")}}
-                    after={<MdNavigateNext className="h-full" />}
+                    link
+                    linkComponent={Link}
+                    linkProps={{ href: "/medication" }}
                 />
                 <ListItem 
                     title={"My Reports"}
+                    link
                     onClick={()=>{setActiveTab("reports")}}
-                    after={<MdNavigateNext className="h-full" />}
                 />
                 <ListItem 
                     title={"Update Emergency Contacts"}
-                    onClick={()=>{setActiveTab("reports")}}
-                    after={<MdNavigateNext className="h-full" />}
+                    link
+                    linkComponent={Link}
+                    linkProps={{ href: "/medication" }}
                 />
                 <ListItem 
                     title={"Logout"}
