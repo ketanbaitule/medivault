@@ -6,11 +6,12 @@ import DailyReviewList from "@/components/medicine/DailyReviewList";
 import Report from "@/components/report/Report";
 import { useState } from "react";
 import ProfileListView from "@/components/profile/ProfileListView";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 export default function Home() { 
 
   const [activeTab, setActiveTab] = useState('home');
-
+  const { user, error, isLoading } = useUser();
   return (
     <main>
       <Navbar title="MediVault" large centerTitle />
