@@ -68,7 +68,9 @@ export default function ProfileListView({setActiveTab}){
                 />
                 <ListItem 
                     title={"Logout"}
-                    onClick={()=>{setActiveTab("reports")}}
+                    link
+                    linkComponent={Link}
+                    linkProps={{ href: "/api/auth/logout" }}
                 />
             </List>
         </>
