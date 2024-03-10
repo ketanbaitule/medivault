@@ -1,40 +1,44 @@
-import { Navbar, BlockTitle, List, ListItem, Tabbar, TabbarLink } from "konsta/react";
+import { Navbar, BlockTitle, List, ListItem, Tabbar, TabbarLink, Fab } from "konsta/react";
 import MedicineTypeIcon from "@/components/shared/MedicineTypeIcon";
 import { MdNavigateNext } from "react-icons/md";
+import Link from "next/link";
+import { FaPlus } from "react-icons/fa";
 
-export default function DailyReviewList(){
-    const daily_review_medicines = [
-        {
-          "name": "Oxycodon",
-          "time": "10:00 AM",
-          "type": "pills",
-          "status": "Completed",
-        },
-        {
-          "name": "Nalaxon",
-          "time": "4:00 PM",
-          "type": "syrup",
-          "status": "Skipped",
-        },
-        {
-          "name": "Oxycodon",
-          "time": "10:00 AM",
-          "type": "pills",
-          "status": "Completed"
-        },
-        {
-            "name": "Nalaxon",
-            "time": "4:00 PM",
-            "type": "syrup",
-            "status": "Skipped",
-        },
-        {
-            "name": "Nalaxon",
-            "time": "4:00 PM",
-            "type": "syrup",
-            "status": "Skipped",
-        },
-      ]
+export default function DailyReviewList({journalList}){
+    console.log(typeof(journalList))
+    const daily_review_medicines =  journalList;
+    // const daily_review_medicines = [
+    //     {
+    //       "name": "Oxycodon",
+    //       "time": "10:00 AM",
+    //       "type": "pills",
+    //       "status": "Completed",
+    //     },
+    //     {
+    //       "name": "Nalaxon",
+    //       "time": "4:00 PM",
+    //       "type": "syrup",
+    //       "status": "Skipped",
+    //     },
+    //     {
+    //       "name": "Oxycodon",
+    //       "time": "10:00 AM",
+    //       "type": "pills",
+    //       "status": "Completed"
+    //     },
+    //     {
+    //         "name": "Nalaxon",
+    //         "time": "4:00 PM",
+    //         "type": "syrup",
+    //         "status": "Skipped",
+    //     },
+    //     {
+    //         "name": "Nalaxon",
+    //         "time": "4:00 PM",
+    //         "type": "syrup",
+    //         "status": "Skipped",
+    //     },
+    //   ]
 
     return(
         <>
@@ -61,6 +65,8 @@ export default function DailyReviewList(){
                 })
                 }
             </List>
+                
+            <Fab component={Link} href={"journal/add"} icon={<FaPlus />} className="fixed right-5-safe bottom-20-safe z-20" />
         </>
     )
 }

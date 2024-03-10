@@ -10,8 +10,9 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 import { MongoClient } from "mongodb";
 import { mongo_uri } from "@/lib/constants";
 import { getSession } from "@auth0/nextjs-auth0";
+import { getJournalList } from "./api/journal";
 
-export default function Home({reports}) { 
+export default function Home({reports, journalList}) { 
 
   const [activeTab, setActiveTab] = useState('home');
   const { user, error, isLoading } = useUser();
@@ -20,7 +21,7 @@ export default function Home({reports}) {
 	<main>
 	  <Navbar title="MediVault" large centerTitle />
 
-	  { activeTab === "home" && <DailyReviewList />}
+	  { activeTab === "home" && <DailyReviewList journalList={journalList} />}
 	  { activeTab === "reports" && <Report reports={reports} />}
 	  { activeTab === "profile" && <ProfileListView user={user} setActiveTab={setActiveTab} /> }
 
@@ -48,8 +49,11 @@ export async function getServerSideProps(context){
 			patient_id:  session.user.email
 		})
 
+		const journalList = await getJournalList(session)
+
 		return { props: {
-			reports: JSON.parse(JSON.stringify(await reports.toArray()))
+			reports: JSON.parse(JSON.stringify(await reports.toArray())),
+			journalList: JSON.parse(JSON.stringify(await journalList))
 		}}
 	}catch(e){
 		console.log("Error", e)
