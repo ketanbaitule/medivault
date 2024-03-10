@@ -47,6 +47,9 @@ export default function AddReviewMedication({medicinesList}){
 						<form onSubmit={onSubmit}>
 
 								<List>
+								{
+									medicinesList.length === 0 && <ListItem link linkComponent={Link} linkProps={{href: "/medication/add"}} title={"No Medicine Added. Click to add your medication"} />
+								}
 										<ListInput
 										label="Select Medicine"
 										type="select"

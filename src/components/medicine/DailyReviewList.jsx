@@ -44,6 +44,9 @@ export default function DailyReviewList({journalList}){
         <>
             <BlockTitle medium >Daily Review</BlockTitle>
             <List strong inset outline>
+            {
+									daily_review_medicines.length !== 0 && <ListItem link linkComponent={Link} linkProps={{href: "/journal/add"}} title={"No Review Added. Click to add your first review."} />
+								}
                 {
                 daily_review_medicines.map((medicine, index)=>{
 
