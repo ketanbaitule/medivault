@@ -64,7 +64,7 @@ export default function ProfileListView({setActiveTab}){
                     title={"Update Emergency Contacts"}
                     link
                     linkComponent={Link}
-                    linkProps={{ href: "/medication" }}
+                    linkProps={{ href: "/emergency" }}
                 />
                 <ListItem 
                     title={"Logout"}
